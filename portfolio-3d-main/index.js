@@ -39372,7 +39372,13 @@ class yM {
       body: JSON.stringify({
         name: this.fields[0].input.value,
         email: this.fields[1].input.value,
-        message: this.fields[2].input.value,
+        message:
+          (document.getElementById("contact-subject-input-field") &&
+          document.getElementById("contact-subject-input-field").value
+            ? "Subject: " +
+              document.getElementById("contact-subject-input-field").value +
+              "\n\n"
+            : "") + this.fields[2].input.value,
       }),
     });
     this.showResult(e);
@@ -39430,6 +39436,8 @@ class yM {
   }
   clearInputs() {
     this.fields.forEach((e) => (e.input.value = ""));
+    const e = document.getElementById("contact-subject-input-field");
+    e && (e.value = "");
   }
   fillLine(e, t = 0, n = 0.5) {
     if (e.getClientRects().length != 0) {
