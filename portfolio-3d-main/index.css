@@ -932,21 +932,22 @@ footer span {
     }
 }
 
-/* —— Contact v2 (clinic-style layout) —— */
+/* —— Contact v2 (aligned with site: orange + navy + warm beige) —— */
 .contact-section-v2 {
-    --ct-teal: #0d9488;
-    --ct-teal-dark: #0f766e;
-    --ct-teal-soft: #ecfdf5;
-    --ct-teal-muted: #5eead4;
-    background: #fafafa
+    --brand-orange: #FF923E;
+    --brand-orange-deep: #e67a28;
+    --brand-orange-soft: rgba(255, 146, 62, 0.14);
+    --brand-orange-glow: rgba(255, 146, 62, 0.22);
+    --brand-navy: #091434;
+    background: #f5efe6
 }
 
 .contact-section-v2 .contact-v2-hr {
-    background-color: var(--ct-teal) !important
+    background-color: var(--brand-orange) !important
 }
 
 .contact-section-v2 .section-subheader-container h5 {
-    color: var(--ct-teal-dark)
+    color: var(--brand-orange)
 }
 
 .contact-shell-v2 {
@@ -964,8 +965,8 @@ footer span {
     padding: clamp(16px, 2vw, 28px) !important;
     border-radius: 20px;
     background: #fff;
-    box-shadow: 0 8px 40px rgba(15, 118, 110, 0.08);
-    border: 1px solid rgba(13, 148, 136, 0.12);
+    box-shadow: 0 8px 40px rgba(9, 20, 52, 0.07);
+    border: 1px solid rgba(9, 20, 52, 0.08);
     box-sizing: border-box
 }
 
@@ -988,13 +989,13 @@ footer span {
     padding: 20px 16px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(9, 20, 52, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease
 }
 
 .contact-info-card-v2:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(13, 148, 136, 0.12)
+    box-shadow: 0 12px 28px rgba(255, 146, 62, 0.15)
 }
 
 .contact-info-icon-v2 {
@@ -1002,8 +1003,8 @@ footer span {
     height: 48px;
     margin: 0 auto 12px;
     border-radius: 12px;
-    background: var(--ct-teal-soft);
-    color: var(--ct-teal);
+    background: var(--brand-orange-soft);
+    color: var(--brand-orange-deep);
     display: flex;
     align-items: center;
     justify-content: center
@@ -1015,7 +1016,7 @@ footer span {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: #091434;
+    color: var(--brand-navy);
     margin: 0 0 8px
 }
 
@@ -1028,12 +1029,13 @@ footer span {
 }
 
 .contact-info-text-v2 a {
-    color: var(--ct-teal-dark);
+    color: var(--brand-navy);
     font-weight: 600;
     text-decoration: none
 }
 
 .contact-info-text-v2 a:hover {
+    color: var(--brand-orange-deep);
     text-decoration: underline
 }
 
@@ -1041,7 +1043,7 @@ footer span {
     background: #fff;
     border-radius: 16px;
     padding: 8px 4px 4px;
-    border: 1px solid rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(9, 20, 52, 0.08);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04)
 }
 
@@ -1049,7 +1051,7 @@ footer span {
     font-family: 'Fraunces', 'Georgia', serif;
     font-size: 1.35rem;
     font-weight: 700;
-    color: #091434;
+    color: var(--brand-navy);
     margin: 0 0 20px;
     padding: 0 8px
 }
@@ -1078,27 +1080,27 @@ footer span {
     padding: 12px 28px;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--ct-teal) 0%, var(--ct-teal-dark) 100%);
+    background: linear-gradient(135deg, #ff9b4f 0%, var(--brand-orange) 45%, var(--brand-orange-deep) 100%);
     color: #fff !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.35);
+    box-shadow: 0 4px 18px rgba(255, 146, 62, 0.4);
     transition: transform 0.2s ease, box-shadow 0.2s ease
 }
 
 .contact-send-btn-v2:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.4)
+    box-shadow: 0 8px 26px rgba(255, 146, 62, 0.45)
 }
 
 .contact-map-v2 {
     width: 100%;
     margin-top: 48px;
     padding: 36px 24px 40px;
-    background: linear-gradient(180deg, #ccfbf1 0%, #99f6e4 100%);
-    border-top: 1px solid rgba(13, 148, 136, 0.2);
+    background: linear-gradient(180deg, #fff5eb 0%, #ffe8d2 55%, #ffd8b8 100%);
+    border-top: 1px solid rgba(255, 146, 62, 0.25);
     box-sizing: border-box;
     border-radius: 0 0 20px 20px
 }
@@ -1109,7 +1111,7 @@ footer span {
 }
 
 .contact-map-pin-v2 {
-    color: var(--ct-teal-dark);
+    color: var(--brand-orange-deep);
     display: flex;
     justify-content: center;
     margin-bottom: 10px
@@ -1119,14 +1121,14 @@ footer span {
     font-family: 'Fraunces', 'Georgia', serif;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #0f766e;
+    color: var(--brand-navy);
     margin: 0 0 8px
 }
 
 .contact-map-address-v2 {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1rem;
-    color: #115e59;
+    color: #5a6478;
     margin: 0 0 14px
 }
 
@@ -1135,12 +1137,12 @@ footer span {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--ct-teal-dark);
+    color: var(--brand-orange-deep);
     text-decoration: underline
 }
 
 .contact-map-link-v2:hover {
-    color: #134e4a
+    color: var(--brand-navy)
 }
 
 .contact-map-embed-v2 {
@@ -1149,11 +1151,11 @@ footer span {
     margin: 16px auto 12px;
     border-radius: 14px;
     overflow: hidden;
-    border: 2px solid rgba(13, 148, 136, 0.25);
-    box-shadow: 0 8px 28px rgba(15, 118, 110, 0.15);
+    border: 2px solid rgba(255, 146, 62, 0.35);
+    box-shadow: 0 8px 28px rgba(9, 20, 52, 0.1);
     aspect-ratio: 16 / 9;
     min-height: 220px;
-    background: #e6fffa
+    background: #faf8f5
 }
 
 .contact-map-embed-v2 iframe {
@@ -1168,8 +1170,8 @@ footer span {
     border-radius: 16px !important;
     padding: 2.5rem 1.5rem !important;
     min-height: 200px;
-    border: 1px solid rgba(13, 148, 136, 0.15) !important;
-    box-shadow: 0 8px 32px rgba(13, 148, 136, 0.08) !important;
+    border: 1px solid rgba(9, 20, 52, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(9, 20, 52, 0.06) !important;
     background: #fff !important
 }
 
@@ -1177,7 +1179,7 @@ footer span {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #0f766e
+    color: var(--brand-navy)
 }
 
 .contact-result-btn-v2 {
@@ -1185,19 +1187,19 @@ footer span {
     padding: 12px 32px;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    background: linear-gradient(135deg, #ff9b4f 0%, #FF923E 45%, #e67a28 100%);
     color: #fff !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.35);
+    box-shadow: 0 4px 18px rgba(255, 146, 62, 0.4);
     transition: transform 0.2s ease, box-shadow 0.2s ease
 }
 
 .contact-result-btn-v2:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.4)
+    box-shadow: 0 8px 26px rgba(255, 146, 62, 0.45)
 }
 
 #contact-container.contact-shell-v2 #contact-form-container textarea,
@@ -1211,8 +1213,8 @@ footer span {
 }
 
 .contact-section-v2 .input-container:focus-within {
-    border-color: rgba(13, 148, 136, 0.45) !important;
-    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12)
+    border-color: rgba(255, 146, 62, 0.55) !important;
+    box-shadow: 0 0 0 3px rgba(255, 146, 62, 0.15)
 }
 
 #contact-subject-input.contact-field-v2 {
