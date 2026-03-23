@@ -65,7 +65,7 @@ class lM {
         `
               <div id="work-item-${e.id}" class="work-item-container column">
                   <img class="work-item-image" src="${e.image}" alt="${e.alt
-        }" height="300" width="334"/>
+        }" height="300" width="334" loading="lazy" decoding="async"/>
                   <div class="work-item-content-container">
                       <h3>${e.name}</h3>
                       <div class="work-item-tag-container row">

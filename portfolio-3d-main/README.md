@@ -38,6 +38,17 @@ Please note that the 3D models used in this project were **purchased from a thir
 
 ---
 
+## ⚡ Performance (LCTech build)
+- **Staged loading:** Room, lab, and character assets load first; the **contact 3D block** (GLBs + textures) loads in the background so the first screen becomes interactive sooner.
+- **GPU:** Pixel ratio capped at **1.25**, **no MSAA** on the WebGL canvas, **anisotropy** capped at **4**, `powerPreference: high-performance`.
+- **Audio:** Howler **preloads** only sounds needed for the first interactions; others load on first play.
+- **HTML:** Font Awesome CSS loads **non-blocking**; project images use **`loading="lazy"`** where applicable.
+- **Hosting:** `netlify.toml` sets long **Cache-Control** for static folders.
+
+**Further shrink payload (optional):** Re-export GLBs with [gltf-transform](https://gltftools.com/) (meshopt/draco), compress baked JPGs/WebP (e.g. Squoosh), and trim unused project images.
+
+---
+
 ## 👨‍💻 Author
 **Yash Chauhan**
 - GitHub: [@yashchauhan008](https://github.com/Yashchauhan008 )

@@ -27663,7 +27663,7 @@ class Av extends Ai {
       this.checkPortrait(),
       (this.width = window.innerWidth),
       (this.height = window.innerHeight),
-      (this.pixelRatio = Math.min(window.devicePixelRatio, 2));
+      (this.pixelRatio = Math.min(window.devicePixelRatio, 1.25));
   }
   checkPortrait() {
     const t = window.innerWidth / window.innerHeight <= 1.2;
@@ -27777,7 +27777,10 @@ class Rv {
   setInstance() {
     (this.instance = new Je({
       canvas: this.canvas,
-      antialias: !0,
+      antialias: !1,
+      powerPreference: "high-performance",
+      stencil: !1,
+      alpha: !1,
     })),
       (this.instance.outputEncoding = Ge),
       this.instance.setClearColor("#F5EFE6"),
@@ -27785,7 +27788,7 @@ class Rv {
   }
   resize() {
     this.instance.setSize(this.sizes.width, this.sizes.height),
-      this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2));
+      this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 1.25));
   }
   update() {
     this.instance.render(this.scene, this.camera.instance);
@@ -34292,6 +34295,25 @@ class ww {
   constructor() {
     (this.experience = new ye()),
       (this.resources = this.experience.resources),
+      (this.contact = {}),
+      (this.contact.scene = {
+        model: {
+          position: {
+            y: 0,
+          },
+        },
+        setYPosition(e) {
+          this.model.position.y = e - 4.7;
+        },
+      }),
+      (this.contact.animation = {
+        resetCharacter() { },
+        playIdle() { },
+        playTransition() { },
+      }),
+      (this.contact.david = {}),
+      (this.contact.exclamationMark = null),
+      (this.contact.shadow = null),
       this.resources.on("ready", () => {
         (this.fog = new fw()),
           (this.background = new aw()),
@@ -34312,16 +34334,31 @@ class ww {
           (this.lab.drop = new nw()),
           (this.lab.bubbles = new iw()),
           (this.lab.testTubes = new sw()),
-          (this.contact = {}),
-          (this.contact.scene = new hw()),
-          (this.contact.shadow = new uw()),
-          (this.contact.david = new dw()),
           (this.character = {}),
           (this.character.body = new mw()),
           (this.character.face = new gw()),
           (this.character.animations = new yw()),
-          (this.character.intervals = new _w()),
+          (this.character.intervals = new _w());
+      }),
+      this.resources.on("contactReady", () => {
+        (this.contact.scene = new hw()),
+          (this.contact.shadow = new uw()),
+          (this.contact.david = new dw()),
           (this.contact.animation = new pw());
+        const e = this.experience;
+        e.ui &&
+          (e.ui.landingPage &&
+            (e.ui.landingPage.contactAnimation = this.contact.animation),
+            e.ui.scroll && (e.ui.scroll.contactScene = this.contact.scene),
+            e.ui.menu &&
+            e.ui.menu.main &&
+            (e.ui.menu.main.contactAnimation = this.contact.animation),
+            e.ui.menu &&
+            e.ui.menu.items &&
+            (e.ui.menu.items.contactAnimation = this.contact.animation),
+            e.ui.contact &&
+            e.ui.contact.animationEvents &&
+            (e.ui.contact.animationEvents.animation = this.contact.animation));
       });
   }
   update() {
@@ -36696,11 +36733,12 @@ function Qw(o, e, t, n, i) {
 }
 tp.prototype.isFont = !0;
 class eM extends Ai {
-  constructor(t) {
+  constructor(t, n) {
     super();
     he(this, "loadingAnimation", document.getElementById("loading-animation"));
     he(this, "loadingRect", document.getElementById("loading-rect"));
     (this.experience = new ye()),
+      (this.deferredPhase2 = n && n.length ? n : null),
       (this.sources = t),
       (this.items = {}),
       (this.toLoad = this.sources.length),
@@ -36731,24 +36769,43 @@ class eM extends Ai {
         });
   }
   sourceLoaded(t, n) {
-    (this.items[t.name] = n),
-      this.loaded++,
-      this.updateLoadingAnimation(),
-      this.loaded === this.toLoad &&
-      (this.trigger("ready"), this.initTextures());
+    if (
+      ((this.items[t.name] = n),
+        this.loaded++,
+        this.updateLoadingAnimation(),
+        this.loaded !== this.toLoad)
+    )
+      return;
+    if (this.deferredPhase2 && this.deferredPhase2.length && !this._startedPhase2) {
+      (this._startedPhase2 = !0),
+        this.trigger("ready"),
+        this.initTextures(),
+        (this.sources = this.deferredPhase2),
+        (this.toLoad = this.sources.length),
+        (this.loaded = 0),
+        (this.deferredPhase2 = null),
+        this.startLoading();
+      return;
+    }
+    this._startedPhase2
+      ? (this.trigger("contactReady"), this.initTextures())
+      : (this.trigger("ready"), this.initTextures());
   }
   updateLoadingAnimation() {
-    P.to(this.loadingRect, {
-      y: 61 - 61 * (this.loaded / this.toLoad),
-    });
+    this._startedPhase2 ||
+      P.to(this.loadingRect, {
+        y: 61 - 61 * (this.loaded / this.toLoad),
+      });
   }
   initTextures() {
-    this.textures.forEach((t) => {
-      this.experience.renderer.instance.initTexture(t);
+    const t = this.experience.renderer.instance,
+      n = Math.min(4, t.capabilities.getMaxAnisotropy());
+    this.textures.forEach((i) => {
+      (i.anisotropy = n), t.initTexture(i);
     });
   }
 }
-const tM = [
+const tMCore = [
   {
     name: "roomModel",
     type: "gltfModel",
@@ -36929,6 +36986,8 @@ const tM = [
     type: "texture",
     path: "textures/sprites/bubble-pop.png",
   },
+];
+const tMContact = [
   {
     name: "contactSceneModel",
     type: "gltfModel",
@@ -42263,6 +42322,13 @@ class EM {
               src: t,
               volume: e.volume,
               html5: e.html5 ? e.html5 : !1,
+              preload:
+                e.name === "roomAmbience" ||
+                e.name === "labAmbience" ||
+                e.name === "notification" ||
+                e.name === "waterSplash"
+                  ? !0
+                  : !1,
             })
           );
         });
@@ -42389,7 +42455,7 @@ class ye {
       (this.sizes = new Av()),
       (this.time = new Cv()),
       (this.scene = new lc()),
-      (this.resources = new eM(tM)),
+      (this.resources = new eM(tMCore, tMContact)),
       (this.camera = new Lv()),
       (this.waypoints = new TM()),
       (this.renderer = new Rv()),
