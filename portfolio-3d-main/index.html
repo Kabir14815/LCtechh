@@ -203,7 +203,7 @@
                     <i class="fab fa-github social-icon"></i>
                 </a>
 
-                <a tabindex="-1" href="mailto:contact@lctech.in">
+                <a tabindex="-1" href="mailto:infotech14815@gmail.com">
                     <i class="fas fa-envelope social-icon"></i>
                 </a>
 
@@ -725,12 +725,12 @@
                 </div>
 
                 <!--Loading Container-->
-                <div id="contact-loading-container" class="center contact-container hide">
-                    <h4>Delivering...</h4>
+                <div id="contact-loading-container" class="center contact-container contact-state-v2 hide">
+                    <h4 class="contact-state-title-v2">Sending…</h4>
                 </div>
 
                 <!--Result Container-->
-                <div id="contact-result-container" class="contact-container column center hide">
+                <div id="contact-result-container" class="contact-container column center contact-state-v2 hide">
                     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                         <polyline id="contact-success-line" class="hide" stroke="#A1CC4D" points="10,70 40,100 115,20">
                         </polyline>
@@ -742,7 +742,7 @@
                     <div id="contact-result-message-container" class="center column">
 
                     </div>
-                    <div class="small-button orange-hover" id="contact-result-button"></div>
+                    <button type="button" class="contact-result-btn-v2" id="contact-result-button"></button>
                 </div>
 
             </div>
@@ -758,14 +758,19 @@
                     </div>
                     <h3 class="contact-map-heading-v2">Interactive Map</h3>
                     <p class="contact-map-address-v2">Haryana</p>
-                    <a class="contact-map-link-v2" href="https://www.google.com/maps/search/?api=1&query=Haryana"
+                    <div class="contact-map-embed-v2">
+                        <iframe title="Map — Haryana"
+                            src="https://maps.google.com/maps?q=Haryana%2C%20India&z=7&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                    </div>
+                    <a class="contact-map-link-v2" href="https://www.google.com/maps/search/?api=1&query=Haryana%2C+India"
                         target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
                 </div>
             </div>
         </section>
 
         <footer class="row center">
-            <span>&copy; LCTech Agency</span>
+            <span>&copy; 2026 LCTech Agency</span>
 
             <!--Legal Container-->
             <div id="legal-container" class="row">
