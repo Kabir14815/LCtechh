@@ -44,6 +44,16 @@ const oM = [
     liveview: "https://drkpsclinic.com",
     alt: "Dr. KPS Clinic - Multispeciality Hospital",
   },
+  {
+    id: 5,
+    name: "Mehta Hospital",
+    description:
+      "Premium healthcare website for Kharar, Punjab — services, doctors, 24/7 emergency info, and a polished patient-facing experience aligned with the hospital brand.",
+    image: "images/projects/mehta-logo.png",
+    tags: ["react", "javascript", "css", "videoEditing"],
+    liveview: "https://mehtahospitalkharar.com/",
+    alt: "Mehta Hospital | Premium Healthcare in Kharar, Punjab",
+  },
 ];
 
 class lM {
@@ -130,7 +140,7 @@ class lM {
         document
           .getElementById("work-item-0")
           .classList.contains("work-item-container-transition") &&
-        ((this.experience.ui.work.cards.currentItemIndex = -e.id + 4),
+        ((this.experience.ui.work.cards.currentItemIndex = 5 - e.id),
           this.experience.ui.work.cards.updatePositions(),
           this.sounds.play("buttonClick"));
     });

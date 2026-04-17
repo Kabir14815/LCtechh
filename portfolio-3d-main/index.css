@@ -72,7 +72,7 @@ body {
 
 /* ===== Skill Modal Popup ===== */
 .about-skill-container:hover {
-    background: rgba(0, 183, 255, 0.08) !important;
+    background: rgba(255, 146, 62, 0.08) !important;
 }
 
 #skill-modal-overlay {
@@ -81,15 +81,18 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
+    background: rgba(9, 20, 52, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.32s ease;
 }
 
 #skill-modal-overlay.skill-modal-visible {
@@ -98,64 +101,150 @@ body {
 }
 
 #skill-modal-banner {
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    padding: 32px 36px;
-    max-width: 420px;
-    width: 90%;
+    --modal-navy: #091434;
+    --modal-orange: #FF923E;
+    background: linear-gradient(165deg, #fffefb 0%, #f5efe6 48%, #fbf7f0 100%);
+    border: 1px solid rgba(9, 20, 52, 0.08);
+    border-radius: 22px;
+    padding: 0;
+    max-width: 440px;
+    width: 100%;
     text-align: center;
     position: relative;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-    transform: translateY(30px) scale(0.95);
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    box-shadow:
+        0 4px 6px rgba(9, 20, 52, 0.04),
+        0 24px 48px rgba(9, 20, 52, 0.12),
+        0 0 0 1px rgba(255, 146, 62, 0.06) inset;
+    transform: translateY(24px) scale(0.96);
+    transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
 .skill-modal-visible #skill-modal-banner {
     transform: translateY(0) scale(1);
 }
 
+.skill-modal-accent {
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, #ffb366 0%, var(--modal-orange) 42%, #e67a28 100%);
+}
+
+.skill-modal-body {
+    padding: 28px 32px 34px;
+    position: relative;
+}
+
 #skill-modal-close {
     position: absolute;
-    top: 10px;
+    top: 14px;
     right: 14px;
-    background: none;
-    border: none;
-    color: #7c8594;
-    font-size: 24px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(9, 20, 52, 0.08);
+    color: #5a6170;
+    font-size: 22px;
     cursor: pointer;
     line-height: 1;
-    padding: 6px 10px;
-    border-radius: 10px;
-    transition: 0.2s;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 #skill-modal-close:hover {
-    color: #091434;
-    background: rgba(0, 0, 0, 0.05);
+    color: var(--modal-navy);
+    background: #fff;
+    border-color: rgba(255, 146, 62, 0.35);
+    transform: scale(1.04);
+}
+
+#skill-modal-close:focus-visible {
+    outline: 2px solid var(--modal-orange);
+    outline-offset: 2px;
+}
+
+.skill-modal-icon-wrap {
+    width: 72px;
+    height: 72px;
+    margin: 4px auto 0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #ff9b4f 0%, var(--modal-orange) 45%, #e67a28 100%);
+    box-shadow:
+        0 10px 28px rgba(255, 146, 62, 0.35),
+        0 2px 0 rgba(255, 255, 255, 0.25) inset;
 }
 
 #skill-modal-icon {
-    font-size: 40px;
-    margin-bottom: 16px;
+    font-size: 28px;
+    line-height: 1;
+    color: #fff;
+}
+
+#skill-modal-icon i {
+    color: #fff;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.12));
+}
+
+.skill-modal-eyebrow {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--modal-orange);
+    margin: 18px 0 10px;
 }
 
 #skill-modal-title {
     font-family: 'Fraunces', 'Georgia', serif;
     font-weight: 700;
-    font-size: 20px;
-    color: #091434;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 14px;
+    font-size: clamp(1.35rem, 3.5vw, 1.55rem);
+    color: var(--modal-navy);
+    text-transform: capitalize;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    margin: 0 0 0;
+}
+
+.skill-modal-divider {
+    width: 48px;
+    height: 3px;
+    margin: 18px auto 20px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--modal-orange), transparent);
+    opacity: 0.95;
 }
 
 #skill-modal-desc {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #7c8594;
-    line-height: 1.7;
+    font-weight: 450;
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.75;
+    max-width: 36em;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+    .skill-modal-body {
+        padding: 24px 22px 30px;
+    }
+
+    #skill-modal-title {
+        font-size: 1.3rem;
+    }
+
+    #skill-modal-desc {
+        font-size: 14px;
+    }
 }
 
 footer span {

@@ -37544,6 +37544,7 @@ class sM {
 class rM {
   constructor() {
     he(this, "positionStyles", [
+      "transform: translateX(-510%) scale(0.9);",
       "transform: translateX(-410%) scale(0.9);",
       "transform: translateX(-310%) scale(0.9); ",
       "transform: translateX(-210%) scale(0.9);",
@@ -37553,13 +37554,14 @@ class rM {
       "transform: translateX(210%) scale(0.9)",
       "transform: translateX(310%) scale(0.9);",
       "transform: translateX(410%) scale(0.9);",
+      "transform: translateX(510%) scale(0.9);",
     ]);
     he(this, "domElements", {
       section: document.getElementById("work-section"),
       backButton: document.getElementById("work-back-button"),
       nextButton: document.getElementById("work-next-button"),
     });
-    he(this, "currentItemIndex", 2);
+    he(this, "currentItemIndex", 3);
     he(this, "itemsAreMoving", !0);
     (this.experience = new ye()),
       (this.gestures = this.experience.gestures),
@@ -37575,7 +37577,7 @@ class rM {
       this.sizes.on("landscape", () => this.onOrientationChange());
   }
   onOrientationChange() {
-    (this.currentItemIndex = 2), this.updatePositions();
+    (this.currentItemIndex = 3), this.updatePositions();
   }
   addButtonEventListeners() {
     this.domElements.backButton.addEventListener("click", () => {
@@ -37612,7 +37614,7 @@ class rM {
       (e == "right" ? this.moveForward() : this.moveBack());
   }
   moveBack() {
-    this.currentItemIndex != 4 &&
+    this.currentItemIndex != 5 &&
       !this.itemsAreMoving &&
       document
         .getElementById("work-item-0")
@@ -37641,7 +37643,7 @@ class rM {
         const n = this.render.items.indexOf(t);
         (document.getElementById("work-item-" + t.id).style =
           this.positionStyles[n + this.currentItemIndex]),
-          n + this.currentItemIndex != 4
+          n + this.currentItemIndex != 5
             ? document
               .getElementById("work-item-" + t.id)
               .classList.add("work-inactive-item-container")
@@ -37659,7 +37661,7 @@ class rM {
         "work-disabled-navigation-button"
       ),
         this.experience.ui.hoverIcon.setupDefault())
-      : this.currentItemIndex == 4
+      : this.currentItemIndex == 5
         ? (this.domElements.backButton.classList.add(
           "work-disabled-navigation-button"
         ),
@@ -37717,6 +37719,16 @@ const oM = [
     tags: ["react", "javascript", "videoEditing", "css"],
     liveview: "https://drkpsclinic.com",
     alt: "Dr. KPS Clinic - Multispeciality Hospital",
+  },
+  {
+    id: 5,
+    name: "Mehta Hospital",
+    description:
+      "Premium healthcare website for Kharar, Punjab — services, doctors, 24/7 emergency info, and a polished patient-facing experience aligned with the hospital brand.",
+    image: "images/projects/mehta-logo.png",
+    tags: ["react", "javascript", "css", "videoEditing"],
+    liveview: "https://mehtahospitalkharar.com/",
+    alt: "Mehta Hospital | Premium Healthcare in Kharar, Punjab",
   },
 ],
   aM = {
@@ -37869,7 +37881,7 @@ class lM {
   //       document
   //         .getElementById("work-item-0")
   //         .classList.contains("work-item-container-transition") &&
-  //       ((this.experience.ui.work.cards.currentItemIndex = -e.id + 4),
+  //       ((this.experience.ui.work.cards.currentItemIndex = 5 - e.id),
   //       this.experience.ui.work.cards.updatePositions(),
   //       this.sounds.play("buttonClick"));
   //   }),
@@ -37901,7 +37913,7 @@ class lM {
           .getElementById("work-item-0")
           .classList.contains("work-item-container-transition")
       ) {
-        this.experience.ui.work.cards.currentItemIndex = -e.id + 4;
+        this.experience.ui.work.cards.currentItemIndex = 5 - e.id;
         this.experience.ui.work.cards.updatePositions();
         this.sounds.play("buttonClick");
       }
@@ -37962,12 +37974,22 @@ class hM {
   createModal() {
     const modal = document.createElement("div");
     modal.id = "skill-modal-overlay";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "skill-modal-title");
     modal.innerHTML = `
       <div id="skill-modal-banner">
-        <button id="skill-modal-close">&times;</button>
-        <div id="skill-modal-icon"></div>
-        <div id="skill-modal-title"></div>
-        <div id="skill-modal-desc"></div>
+        <div class="skill-modal-accent" aria-hidden="true"></div>
+        <button type="button" id="skill-modal-close" aria-label="Close">&times;</button>
+        <div class="skill-modal-body">
+          <div class="skill-modal-icon-wrap">
+            <div id="skill-modal-icon"></div>
+          </div>
+          <p class="skill-modal-eyebrow">LCTech · Expertise</p>
+          <div id="skill-modal-title"></div>
+          <div class="skill-modal-divider" aria-hidden="true"></div>
+          <div id="skill-modal-desc"></div>
+        </div>
       </div>
     `;
     document.body.appendChild(modal);
@@ -37980,8 +38002,15 @@ class hM {
     const overlay = document.getElementById("skill-modal-overlay");
     document.getElementById("skill-modal-title").textContent = skill.name;
     document.getElementById("skill-modal-desc").textContent = skill.description;
-    const icons = { "web development": "⟨/⟩", "app development": "◉", "digital marketing": "◈", "SEO & growth": "↗", "video editing": "▶" };
-    document.getElementById("skill-modal-icon").textContent = icons[skill.name] || "◆";
+    const icons = {
+      "web development": '<i class="fas fa-code" aria-hidden="true"></i>',
+      "app development": '<i class="fas fa-mobile-alt" aria-hidden="true"></i>',
+      "digital marketing": '<i class="fas fa-bullhorn" aria-hidden="true"></i>',
+      "SEO & growth": '<i class="fas fa-chart-line" aria-hidden="true"></i>',
+      "video editing": '<i class="fas fa-film" aria-hidden="true"></i>',
+    };
+    document.getElementById("skill-modal-icon").innerHTML =
+      icons[skill.name] || '<i class="fas fa-star" aria-hidden="true"></i>';
     overlay.classList.add("skill-modal-visible");
   }
   hideModal() {
@@ -39113,7 +39142,7 @@ class gM {
       e.name != "about" &&
       e.name != "home" &&
       ((this.cards = this.experience.ui.work.cards),
-        (this.cards.currentItemIndex = 2),
+        (this.cards.currentItemIndex = 3),
         this.cards.updatePositions()),
       this.experience.ui.hoverIcon.setupDefault(),
       this.experience.ui.hoverIcon.updateBaseColor("#FF923E"),
