@@ -914,7 +914,25 @@ footer span {
     font-weight: 400
 }
 
-#team-cards-container {
+#team-partitions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    width: 100%
+}
+
+.team-partition {
+    width: 100%
+}
+
+.team-partition-title {
+    color: #091434;
+    font-size: 1.4rem;
+    margin: 0 0 18px;
+    text-align: center
+}
+
+.team-cards-container {
     display: flex;
     gap: 28px;
     flex-wrap: wrap;
@@ -988,6 +1006,12 @@ footer span {
     font-weight: 400
 }
 
+.team-phone {
+    margin-top: 10px !important;
+    color: #091434 !important;
+    font-weight: 600 !important
+}
+
 @media (max-aspect-ratio: 12/10) {
     #team-section {
         padding: 60px 0
@@ -998,7 +1022,11 @@ footer span {
         max-width: 100%
     }
 
-    #team-cards-container {
+    #team-partitions-container {
+        gap: 28px
+    }
+
+    .team-cards-container {
         flex-direction: column;
         align-items: center
     }
