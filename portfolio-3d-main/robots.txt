@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap — update the host if you use a custom domain or different deploy URL
+Sitemap: https://kabir14815.github.io/LCtechh/sitemap.xml
