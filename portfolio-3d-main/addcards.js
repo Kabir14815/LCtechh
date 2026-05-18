@@ -22,7 +22,7 @@ const oM = [
     name: "Garg Jewellers",
     description:
       "Luxury jewellery brand website for The House of Garg — royal exclusivity, premium collections, and a polished e-commerce experience at gargjewellers.co.in.",
-    image: "images/projects/garg-logo.png",
+    image: "images/projects/garg-logo.svg",
     tags: ["react", "javascript", "css", "videoEditing"],
     liveview: "https://gargjewellers.co.in/",
     alt: "Garg Jewellers — The House of Garg | Royal Exclusivity",
