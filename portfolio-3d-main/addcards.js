@@ -19,12 +19,13 @@ const oM = [
   },
   {
     id: 2,
-    name: "Mindsurve",
-    description: "Modern survey and research platform with data collection, analytics, and insights dashboard for market research.",
-    image: "images/projects/ms-logo.png",
-    tags: ["react", "javascript", "mongodb", "express"],
-    liveview: "https://mindsurve.com",
-    alt: "Mindsurve Research Platform",
+    name: "Garg Jewellers",
+    description:
+      "Luxury jewellery brand website for The House of Garg — royal exclusivity, premium collections, and a polished e-commerce experience at gargjewellers.co.in.",
+    image: "images/projects/garg-logo.png",
+    tags: ["react", "javascript", "css", "videoEditing"],
+    liveview: "https://gargjewellers.co.in/",
+    alt: "Garg Jewellers — The House of Garg | Royal Exclusivity",
   },
   {
     id: 3,

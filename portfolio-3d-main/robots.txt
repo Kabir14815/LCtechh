@@ -2,5 +2,12 @@
 User-agent: *
 Allow: /
 
-# Sitemap — update the host if you use a custom domain or different deploy URL
+# Sitemap — update host if you deploy to a custom domain
 Sitemap: https://kabir14815.github.io/LCtechh/sitemap.xml
+
+# Crawl hints for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
