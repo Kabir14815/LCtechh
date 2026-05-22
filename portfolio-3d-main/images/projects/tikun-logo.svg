@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 334 300" width="334" height="300" role="img" aria-label="Tikun CRM">
+  <defs>
+    <linearGradient id="tikun-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f4ff"/>
+      <stop offset="100%" stop-color="#e2e8f8"/>
+    </linearGradient>
+    <linearGradient id="tikun-accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f6ef7"/>
+      <stop offset="100%" stop-color="#2d4acb"/>
+    </linearGradient>
+  </defs>
+  <rect width="334" height="300" rx="13" fill="url(#tikun-bg)"/>
+  <rect x="88" y="78" width="158" height="118" rx="12" fill="#fff" stroke="url(#tikun-accent)" stroke-width="2"/>
+  <rect x="108" y="98" width="118" height="10" rx="5" fill="url(#tikun-accent)" opacity="0.85"/>
+  <rect x="108" y="118" width="90" height="8" rx="4" fill="#c5d0f5"/>
+  <rect x="108" y="134" width="100" height="8" rx="4" fill="#c5d0f5"/>
+  <rect x="108" y="150" width="80" height="8" rx="4" fill="#c5d0f5"/>
+  <circle cx="248" cy="168" r="22" fill="url(#tikun-accent)"/>
+  <path d="M240 168 l6 6 14-14" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="167" y="228" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1a2547">Tikun CRM</text>
+  <text x="167" y="254" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2" fill="#4f6ef7">CUSTOMER RELATIONSHIP MANAGEMENT</text>
+</svg>

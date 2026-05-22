@@ -37544,6 +37544,8 @@ class sM {
 class rM {
   constructor() {
     he(this, "positionStyles", [
+      "transform: translateX(-710%) scale(0.9);",
+      "transform: translateX(-610%) scale(0.9);",
       "transform: translateX(-510%) scale(0.9);",
       "transform: translateX(-410%) scale(0.9);",
       "transform: translateX(-310%) scale(0.9); ",
@@ -37555,6 +37557,8 @@ class rM {
       "transform: translateX(310%) scale(0.9);",
       "transform: translateX(410%) scale(0.9);",
       "transform: translateX(510%) scale(0.9);",
+      "transform: translateX(610%) scale(0.9);",
+      "transform: translateX(710%) scale(0.9);",
     ]);
     he(this, "domElements", {
       section: document.getElementById("work-section"),
@@ -37614,7 +37618,7 @@ class rM {
       (e == "right" ? this.moveForward() : this.moveBack());
   }
   moveBack() {
-    this.currentItemIndex != 5 &&
+    this.currentItemIndex != 7 &&
       !this.itemsAreMoving &&
       document
         .getElementById("work-item-0")
@@ -37643,7 +37647,7 @@ class rM {
         const n = this.render.items.indexOf(t);
         (document.getElementById("work-item-" + t.id).style =
           this.positionStyles[n + this.currentItemIndex]),
-          n + this.currentItemIndex != 5
+          n + this.currentItemIndex != 7
             ? document
               .getElementById("work-item-" + t.id)
               .classList.add("work-inactive-item-container")
@@ -37661,7 +37665,7 @@ class rM {
         "work-disabled-navigation-button"
       ),
         this.experience.ui.hoverIcon.setupDefault())
-      : this.currentItemIndex == 5
+      : this.currentItemIndex == 7
         ? (this.domElements.backButton.classList.add(
           "work-disabled-navigation-button"
         ),
@@ -37730,6 +37734,26 @@ const oM = [
     tags: ["react", "javascript", "css", "videoEditing"],
     liveview: "https://mehtahospitalkharar.com/",
     alt: "Mehta Hospital | Premium Healthcare in Kharar, Punjab",
+  },
+  {
+    id: 6,
+    name: "Mindsurve",
+    description:
+      "Modern survey and research platform with data collection, analytics, and insights dashboard for market research.",
+    image: "images/projects/ms-logo.png",
+    tags: ["react", "javascript", "mongodb", "express"],
+    liveview: "https://mindsurve.com",
+    alt: "Mindsurve Research Platform",
+  },
+  {
+    id: 7,
+    name: "Tikun CRM",
+    description:
+      "Business CRM platform for leads, clients, and sales pipeline management — built for teams to track deals and grow revenue.",
+    image: "images/projects/tikun-logo.svg",
+    tags: ["react", "javascript", "mongodb", "express"],
+    liveview: "https://tikuncrm.com",
+    alt: "Tikun CRM — Customer Relationship Management",
   },
 ],
   aM = {
@@ -37914,7 +37938,7 @@ class lM {
           .getElementById("work-item-0")
           .classList.contains("work-item-container-transition")
       ) {
-        this.experience.ui.work.cards.currentItemIndex = 5 - e.id;
+        this.experience.ui.work.cards.currentItemIndex = 7 - e.id;
         this.experience.ui.work.cards.updatePositions();
         this.sounds.play("buttonClick");
       }

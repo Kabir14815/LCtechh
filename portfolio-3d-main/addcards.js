@@ -55,6 +55,26 @@ const oM = [
     liveview: "https://mehtahospitalkharar.com/",
     alt: "Mehta Hospital | Premium Healthcare in Kharar, Punjab",
   },
+  {
+    id: 6,
+    name: "Mindsurve",
+    description:
+      "Modern survey and research platform with data collection, analytics, and insights dashboard for market research.",
+    image: "images/projects/ms-logo.png",
+    tags: ["react", "javascript", "mongodb", "express"],
+    liveview: "https://mindsurve.com",
+    alt: "Mindsurve Research Platform",
+  },
+  {
+    id: 7,
+    name: "Tikun CRM",
+    description:
+      "Business CRM platform for leads, clients, and sales pipeline management — built for teams to track deals and grow revenue.",
+    image: "images/projects/tikun-logo.svg",
+    tags: ["react", "javascript", "mongodb", "express"],
+    liveview: "https://tikuncrm.com",
+    alt: "Tikun CRM — Customer Relationship Management",
+  },
 ];
 
 class lM {
@@ -141,7 +161,7 @@ class lM {
         document
           .getElementById("work-item-0")
           .classList.contains("work-item-container-transition") &&
-        ((this.experience.ui.work.cards.currentItemIndex = 5 - e.id),
+        ((this.experience.ui.work.cards.currentItemIndex = 7 - e.id),
           this.experience.ui.work.cards.updatePositions(),
           this.sounds.play("buttonClick"));
     });
