@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://kabir14815.github.io/LCtechh/</loc>
+    <loc>https://lctech.co.in/</loc>
     <lastmod>2026-05-18</lastmod>
     <!-- Primary keywords: website developer, website, marketing near me -->
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://kabir14815.github.io/LCtechh/skills-profile-picture.png</image:loc>
+      <image:loc>https://lctech.co.in/skills-profile-picture.png</image:loc>
       <image:title>Website Developer &amp; Marketing Near Me — LCTech Agency India</image:title>
     </image:image>
   </url>
