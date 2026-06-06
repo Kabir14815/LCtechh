@@ -3,12 +3,12 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://lctech.co.in/</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://lctech.co.in/skills-profile-picture.png</image:loc>
-      <image:title>Website Developer &amp; Marketing Near Me — LCTech Agency India</image:title>
+      <image:title>Website Developer and Marketing Near Me - LCTech Agency India</image:title>
     </image:image>
   </url>
 </urlset>
