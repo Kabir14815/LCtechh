@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap — update host if you deploy to a custom domain
-Sitemap: https://kabir14815.github.io/LCtechh/sitemap.xml
+Sitemap: https://lctech.co.in/sitemap.xml
 
 # Crawl hints for major search engines
 User-agent: Googlebot
