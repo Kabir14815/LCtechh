@@ -37542,28 +37542,27 @@ class sM {
   }
 }
 class rM {
+  buildPositionStyles(e) {
+    const t = e - 1,
+      n = 2 * e - 1,
+      s = [];
+    for (let i = 0; i < n; i++) {
+      if (i === t) s.push("transform: translateX(0%);");
+      else {
+        const r = (i - t) * 100 + (i < t ? -10 : 10);
+        s.push(`transform: translateX(${r}%) scale(0.9);`);
+      }
+    }
+    return s;
+  }
+  getCenterIndex() {
+    return this.render.items.length - 1;
+  }
+  getMaxSlideIndex() {
+    return this.render.items.length - 1;
+  }
   constructor() {
-    he(this, "positionStyles", [
-      "transform: translateX(-910%) scale(0.9);",
-      "transform: translateX(-810%) scale(0.9);",
-      "transform: translateX(-710%) scale(0.9);",
-      "transform: translateX(-610%) scale(0.9);",
-      "transform: translateX(-510%) scale(0.9);",
-      "transform: translateX(-410%) scale(0.9);",
-      "transform: translateX(-310%) scale(0.9); ",
-      "transform: translateX(-210%) scale(0.9);",
-      "transform: translateX(-110%) scale(0.9); ",
-      "transform: translateX(0%);",
-      "transform: translateX(110%) scale(0.9);",
-      "transform: translateX(210%) scale(0.9)",
-      "transform: translateX(310%) scale(0.9);",
-      "transform: translateX(410%) scale(0.9);",
-      "transform: translateX(510%) scale(0.9);",
-      "transform: translateX(610%) scale(0.9);",
-      "transform: translateX(710%) scale(0.9);",
-      "transform: translateX(810%) scale(0.9);",
-      "transform: translateX(910%) scale(0.9);",
-    ]);
+    he(this, "positionStyles", []);
     he(this, "domElements", {
       section: document.getElementById("work-section"),
       backButton: document.getElementById("work-back-button"),
@@ -37574,6 +37573,7 @@ class rM {
     (this.experience = new ye()),
       (this.gestures = this.experience.gestures),
       (this.render = this.experience.ui.work.render),
+      (this.positionStyles = this.buildPositionStyles(this.render.items.length)),
       (this.sounds = this.experience.sounds),
       (this.scroll = this.experience.ui.scroll),
       (this.sizes = this.experience.sizes),
@@ -37622,7 +37622,7 @@ class rM {
       (e == "right" ? this.moveForward() : this.moveBack());
   }
   moveBack() {
-    this.currentItemIndex != 9 &&
+    this.currentItemIndex != this.getMaxSlideIndex() &&
       !this.itemsAreMoving &&
       document
         .getElementById("work-item-0")
@@ -37651,7 +37651,7 @@ class rM {
         const n = this.render.items.indexOf(t);
         (document.getElementById("work-item-" + t.id).style =
           this.positionStyles[n + this.currentItemIndex]),
-          n + this.currentItemIndex != 9
+          n + this.currentItemIndex != this.getCenterIndex()
             ? document
               .getElementById("work-item-" + t.id)
               .classList.add("work-inactive-item-container")
@@ -37669,7 +37669,7 @@ class rM {
         "work-disabled-navigation-button"
       ),
         this.experience.ui.hoverIcon.setupDefault())
-      : this.currentItemIndex == 9
+      : this.currentItemIndex == this.getMaxSlideIndex()
         ? (this.domElements.backButton.classList.add(
           "work-disabled-navigation-button"
         ),
@@ -37682,104 +37682,7 @@ class rM {
           ));
   }
 }
-const oM = [
-  {
-    id: 0,
-    name: "Jas&Mey Ice Cream",
-    description: "Premium ice cream brand website with 50+ flavors showcase, online ordering system, and home delivery integration for Baba Dairy.",
-    image: "images/projects/jm-logo.png",
-    tags: ["javascript", "react", "videoEditing", "css"],
-    liveview: "https://babadairy.com",
-    alt: "Jas&Mey Ice Cream - Baba Dairy Website",
-  },
-  {
-    id: 1,
-    name: "Pooja Furniture",
-    description: "Full-featured e-commerce store with product catalog, categories, and seamless shopping experience for a furniture and decor brand.",
-    image: "images/projects/pf-logo.png",
-    tags: ["javascript", "html", "css", "videoEditing"],
-    liveview: "https://poojafurniture.com",
-    alt: "Pooja Furniture E-Commerce Website",
-  },
-  {
-    id: 2,
-    name: "Garg Jewellers",
-    description:
-      "Luxury jewellery brand website for The House of Garg — royal exclusivity, premium collections, and a polished e-commerce experience at gargjewellers.co.in.",
-    image: "images/projects/garg-logo.svg",
-    tags: ["react", "javascript", "css", "videoEditing"],
-    liveview: "https://gargjewellers.co.in/",
-    alt: "Garg Jewellers — The House of Garg | Royal Exclusivity",
-  },
-  {
-    id: 3,
-    name: "GrowWell",
-    description: "Growth-focused digital platform with marketing tools, analytics, and business management features to help businesses scale.",
-    image: "images/projects/gw-logo.png",
-    tags: ["react", "mongodb", "express", "javascript"],
-    liveview: "https://growwell.com",
-    alt: "GrowWell Business Platform",
-  },
-  {
-    id: 4,
-    name: "Dr. KPS Clinic",
-    description: "Multispeciality hospital website with doctor profiles, appointment booking, 24/7 emergency info, and patient services for Kharar, Chandigarh.",
-    image: "images/projects/kps-logo.png",
-    tags: ["react", "javascript", "videoEditing", "css"],
-    liveview: "https://drkpsclinic.com",
-    alt: "Dr. KPS Clinic - Multispeciality Hospital",
-  },
-  {
-    id: 5,
-    name: "Mehta Hospital",
-    description:
-      "Premium healthcare website for Kharar, Punjab — services, doctors, 24/7 emergency info, and a polished patient-facing experience aligned with the hospital brand.",
-    image: "images/projects/mehta-logo.png",
-    tags: ["react", "javascript", "css", "videoEditing"],
-    liveview: "https://mehtahospitalkharar.com/",
-    alt: "Mehta Hospital | Premium Healthcare in Kharar, Punjab",
-  },
-  {
-    id: 6,
-    name: "Mindsurve",
-    description:
-      "Modern survey and research platform with data collection, analytics, and insights dashboard for market research.",
-    image: "images/projects/ms-logo.png",
-    tags: ["react", "javascript", "mongodb", "express"],
-    liveview: "https://mindsurve.com",
-    alt: "Mindsurve Research Platform",
-  },
-  {
-    id: 7,
-    name: "Tikun CRM",
-    description:
-      "Business CRM platform for leads, clients, and sales pipeline management — built for teams to track deals and grow revenue.",
-    image: "images/projects/tikun-logo.svg",
-    tags: ["react", "javascript", "mongodb", "express"],
-    liveview: "https://tikuncrm.com",
-    alt: "Tikun CRM — Customer Relationship Management",
-  },
-  {
-    id: 8,
-    name: "Domestic Dial",
-    description:
-      "Smart home design studio website — 3D visualization, coordinated execution across glazing, joinery, and finishes, plus move-in support under one roof at domesticdial.in.",
-    image: "images/projects/domesticdial-logo.png",
-    tags: ["react", "javascript", "css", "videoEditing"],
-    liveview: "https://domesticdial.in/",
-    alt: "Domestic Dial | Smart Design for Modern Living",
-  },
-  {
-    id: 9,
-    name: "KGF Farming",
-    description:
-      "Agriculture and eco-farming platform for Kamauput Growth Farming — vermicompost, organic inputs, and sustainable crop care products with pan-India delivery at kgffarmingindia.com.",
-    image: "images/projects/kgf-logo.png",
-    tags: ["react", "javascript", "css", "videoEditing"],
-    liveview: "https://kgffarmingindia.com/",
-    alt: "Kamauput Growth Farming — KGF | Agriculture & Eco Farming",
-  },
-],
+const oM = window.PORTFOLIO_PROJECTS,
   aM = {
     html: '<div class="work-item-tag" style="background: #f0f1f3; color: #5a6170">HTML</div>',
     css: '<div class="work-item-tag" style="background: #f0f1f3; color: #5a6170">CSS</div>',
@@ -37962,7 +37865,8 @@ class lM {
           .getElementById("work-item-0")
           .classList.contains("work-item-container-transition")
       ) {
-        this.experience.ui.work.cards.currentItemIndex = 9 - e.id;
+        this.experience.ui.work.cards.currentItemIndex =
+          this.experience.ui.work.cards.getCenterIndex() - e.id;
         this.experience.ui.work.cards.updatePositions();
         this.sounds.play("buttonClick");
       }
