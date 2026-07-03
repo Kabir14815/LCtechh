@@ -95,4 +95,14 @@ window.PORTFOLIO_PROJECTS = [
     liveview: "https://tikuncrm.com",
     alt: "Tikun CRM — Customer Relationship Management",
   },
+  {
+    id: 10,
+    name: "Ziva Hospital",
+    description:
+      "Multispeciality hospital website for Ziva in Mundi Kharar — 24/7 emergency care, doctor profiles, specialties, and appointment booking at zivahospital.in.",
+    image: "images/projects/ziva-logo.png",
+    tags: ["react", "javascript", "css", "videoEditing"],
+    liveview: "https://zivahospital.in/",
+    alt: "Ziva Multispeciality Hospital | 24/7 Care in Kharar, Punjab",
+  },
 ];
