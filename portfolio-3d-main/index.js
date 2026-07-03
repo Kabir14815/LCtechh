@@ -37544,6 +37544,8 @@ class sM {
 class rM {
   constructor() {
     he(this, "positionStyles", [
+      "transform: translateX(-910%) scale(0.9);",
+      "transform: translateX(-810%) scale(0.9);",
       "transform: translateX(-710%) scale(0.9);",
       "transform: translateX(-610%) scale(0.9);",
       "transform: translateX(-510%) scale(0.9);",
@@ -37559,6 +37561,8 @@ class rM {
       "transform: translateX(510%) scale(0.9);",
       "transform: translateX(610%) scale(0.9);",
       "transform: translateX(710%) scale(0.9);",
+      "transform: translateX(810%) scale(0.9);",
+      "transform: translateX(910%) scale(0.9);",
     ]);
     he(this, "domElements", {
       section: document.getElementById("work-section"),
@@ -37618,7 +37622,7 @@ class rM {
       (e == "right" ? this.moveForward() : this.moveBack());
   }
   moveBack() {
-    this.currentItemIndex != 7 &&
+    this.currentItemIndex != 9 &&
       !this.itemsAreMoving &&
       document
         .getElementById("work-item-0")
@@ -37647,7 +37651,7 @@ class rM {
         const n = this.render.items.indexOf(t);
         (document.getElementById("work-item-" + t.id).style =
           this.positionStyles[n + this.currentItemIndex]),
-          n + this.currentItemIndex != 7
+          n + this.currentItemIndex != 9
             ? document
               .getElementById("work-item-" + t.id)
               .classList.add("work-inactive-item-container")
@@ -37665,7 +37669,7 @@ class rM {
         "work-disabled-navigation-button"
       ),
         this.experience.ui.hoverIcon.setupDefault())
-      : this.currentItemIndex == 7
+      : this.currentItemIndex == 9
         ? (this.domElements.backButton.classList.add(
           "work-disabled-navigation-button"
         ),
@@ -37754,6 +37758,26 @@ const oM = [
     tags: ["react", "javascript", "mongodb", "express"],
     liveview: "https://tikuncrm.com",
     alt: "Tikun CRM — Customer Relationship Management",
+  },
+  {
+    id: 8,
+    name: "Domestic Dial",
+    description:
+      "Smart home design studio website — 3D visualization, coordinated execution across glazing, joinery, and finishes, plus move-in support under one roof at domesticdial.in.",
+    image: "images/projects/domesticdial-logo.png",
+    tags: ["react", "javascript", "css", "videoEditing"],
+    liveview: "https://domesticdial.in/",
+    alt: "Domestic Dial | Smart Design for Modern Living",
+  },
+  {
+    id: 9,
+    name: "KGF Farming",
+    description:
+      "Agriculture and eco-farming platform for Kamauput Growth Farming — vermicompost, organic inputs, and sustainable crop care products with pan-India delivery at kgffarmingindia.com.",
+    image: "images/projects/kgf-logo.png",
+    tags: ["react", "javascript", "css", "videoEditing"],
+    liveview: "https://kgffarmingindia.com/",
+    alt: "Kamauput Growth Farming — KGF | Agriculture & Eco Farming",
   },
 ],
   aM = {
@@ -37938,7 +37962,7 @@ class lM {
           .getElementById("work-item-0")
           .classList.contains("work-item-container-transition")
       ) {
-        this.experience.ui.work.cards.currentItemIndex = 7 - e.id;
+        this.experience.ui.work.cards.currentItemIndex = 9 - e.id;
         this.experience.ui.work.cards.updatePositions();
         this.sounds.play("buttonClick");
       }

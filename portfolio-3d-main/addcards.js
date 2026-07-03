@@ -75,6 +75,26 @@ const oM = [
     liveview: "https://tikuncrm.com",
     alt: "Tikun CRM — Customer Relationship Management",
   },
+  {
+    id: 8,
+    name: "Domestic Dial",
+    description:
+      "Smart home design studio website — 3D visualization, coordinated execution across glazing, joinery, and finishes, plus move-in support under one roof at domesticdial.in.",
+    image: "images/projects/domesticdial-logo.png",
+    tags: ["react", "javascript", "css", "videoEditing"],
+    liveview: "https://domesticdial.in/",
+    alt: "Domestic Dial | Smart Design for Modern Living",
+  },
+  {
+    id: 9,
+    name: "KGF Farming",
+    description:
+      "Agriculture and eco-farming platform for Kamauput Growth Farming — vermicompost, organic inputs, and sustainable crop care products with pan-India delivery at kgffarmingindia.com.",
+    image: "images/projects/kgf-logo.png",
+    tags: ["react", "javascript", "css", "videoEditing"],
+    liveview: "https://kgffarmingindia.com/",
+    alt: "Kamauput Growth Farming — KGF | Agriculture & Eco Farming",
+  },
 ];
 
 class lM {
@@ -161,7 +181,7 @@ class lM {
         document
           .getElementById("work-item-0")
           .classList.contains("work-item-container-transition") &&
-        ((this.experience.ui.work.cards.currentItemIndex = 7 - e.id),
+        ((this.experience.ui.work.cards.currentItemIndex = 9 - e.id),
           this.experience.ui.work.cards.updatePositions(),
           this.sounds.play("buttonClick"));
     });
