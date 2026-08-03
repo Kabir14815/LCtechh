@@ -1,3 +1,13 @@
+[[redirects]]
+  from = "/projects"
+  to = "/projects.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+
 # Long cache for versioned static assets (repeat visits load faster)
 [[headers]]
   for = "/models/*"

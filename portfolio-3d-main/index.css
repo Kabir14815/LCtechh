@@ -851,6 +851,27 @@ footer span {
     margin-bottom: 20px
 }
 
+.work-all-projects-cta {
+    width: 100%;
+    align-items: center;
+    margin: 8px 0 28px;
+    position: relative;
+    z-index: 2
+}
+
+.work-all-projects-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: #FF923E;
+    box-shadow: 0 10px 24px rgba(255, 146, 62, 0.28)
+}
+
+.work-all-projects-button:hover {
+    filter: brightness(1.05)
+}
+
 .work-navigation-button {
     height: 54px;
     width: 54px;

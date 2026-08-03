@@ -39442,15 +39442,33 @@ class yM {
 class xM {
   constructor() {
     he(this, "domElements", {
-      smallHeader: document.querySelectorAll(".section-subheader-container")[1],
-      header: document.querySelectorAll(".section-header-container")[2],
+      smallHeader: document.querySelector(
+        "#contact-section .section-subheader-container"
+      ),
+      header: document.querySelector(
+        "#contact-section .section-header-container"
+      ),
       form: document.getElementById("contact-container"),
       contactSection: document.getElementById("contact-section"),
     });
     (this.experience = new ye()),
       (this.animation = this.experience.world.contact.animation),
       (this.sizes = this.experience.sizes),
-      this.addScrollEvents();
+      this.addScrollEvents(),
+      this.revealIfDeepLinked();
+  }
+  revealIfDeepLinked() {
+    if (location.hash !== "#contact-section") return;
+    const e = this.domElements;
+    [e.smallHeader, e.header, e.form].forEach((t) => {
+      t &&
+        P.to(t, {
+          y: 0,
+          opacity: 1,
+          duration: 0,
+        });
+    }),
+      (this.played = !0);
   }
   addScrollEvents() {
     (this.scrollEvents = [
